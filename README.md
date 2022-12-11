@@ -1,15 +1,18 @@
 # Overview
 
-The below is a technical backbone for instantiation of an algorithm that we believe should supplant the current system for congressional re-districting. We outline a process that:
+This repository houses an algorithm designed to eliminate partisan tampering with Congressional districting (colloquially, "gerrymandering").
 
-- Begins with the generation of random seeds generated using a quantum computer
-- Draws congressional districts having a minimum perimeter to area (P/A) ratio
-- Is blind to the location of demographic information such as the current (or projected) addresses of registered voters nationwide 
-- Is impractically difficult to influence (even by a skilled, malicious attacker with a partisan agenda) despite being running deterministically and in polynomial time
+This readme provides relevant history and a high level overview of the key features and substance of the algorithm. Specifically, we outline a process that:
 
-In summary, we report a system for Congressional Redistricting that may aptly be described as "robust to partisanship" or "unbiased" or "agnostic" or "fair".
+1) Begins with the generation of random seeds generated using a quantum computer to generate random coordinate pairs
+2) Uses these coordinate pairs to provide an initial constraint for the boundaries of districts, which consist only of curved (circular) lines
+3) Dramatically reduces of the perimeter of the average Congressional District in every state, and marked mean and median reduction of P/A ratio for  Districts.
+4) Is blind to the location of demographic information such as the current (or projected) addresses of registered voters nationwide 
+5) Is impractically difficult to influence (even by a skilled, malicious attacker with a partisan agenda) despite running deterministically and in polynomial-time
 
-As evidence of this, we submit detailed output and diagnostics on the generation of congressional districts N = 10,000,000 (10 millon) times. These data show that this algorithm draws districts in a way that best reflects the will of the American people.
+## In summary, we report a system for Congressional Redistricting that may aptly be described as "robust to partisanship" or "unbiased" or "agnostic" or "fair".
+
+To illustrate this, we provide detailed output and diagnostics on the generation of congressional districts N = 10,000,000 (10 millon) times. These data show that this algorithm draws districts in a way that best reflects the will of the American people.
 
 # Congressional Districting
 Population per seat (Total of 435 congressional districts s/p fixation in 1929 {see below}).
@@ -100,3 +103,13 @@ The QRNG@ANU JSON API supports three parameters; please see: https://qrng.anu.ed
 Requesting 10 random numbers between 0–255 (https://qrng.anu.edu.au/API/jsonI.php?length=10&type=uint8).
 Requesting 5 random numbers between 0–65535 (https://qrng.anu.edu.au/API/jsonI.php?length=5&type=uint16)
 Requesting 10 blocks of random numbers in hexadecimal format. Each block is between 0000–ffff (https://qrng.anu.edu.au/API/jsonI.php?length=10&type=hex16&size=2#).
+
+# Motivation
+
+Need to think about how to phrase and deliver this section. Why is this necessary? Modern estimates of election contestation.
+What was the purpose and rationale of the germane portions of:
+- Federalist 10
+- US Constitution
+- US Legislation (e.g., 1929, 1965)
+- Supreme Court Case Law
+- On what is the legal precedent that districting should be left to be a "political affair" based? Is there relevant case law on other matters for which the judiciary has reached a different conclusion?
