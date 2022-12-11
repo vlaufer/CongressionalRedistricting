@@ -1,8 +1,13 @@
 # Overview
 
-The below is a technical backbone for instantiation of an algorithm that we believe should supplant the current system for congressional re-districting. Instead, the proposal outlines a process that, after the generation of random seeds, proceeds to draw US Congressional Districts in an unbiased, agnostic, fair manner, protected from the vagaries of partisan politics.
+The below is a technical backbone for instantiation of an algorithm that we believe should supplant the current system for congressional re-districting. We outline a process that:
 
-Although the algorithm is deterministic and runs in polynomial-time, because the algorithm is blind to the location of demographic information (e.g., the addresses of registered voters nationwide) due to the large number of random seeds, the system is free from undue influence.
+- Begins with the generation of random seeds generated using a quantum computer
+- Draws congressional districts having a minimum perimeter to area (P/A) ratio
+- Is blind to the location of demographic information such as the current (or projected) addresses of registered voters nationwide 
+- Is impractically difficult to influence (even by a skilled, malicious attacker with a partisan agenda) despite being running deterministically and in polynomial time
+
+In summary, we report a system for Congressional Redistricting that may aptly be described as "robust to partisanship" or "unbiased" or "agnostic" or "fair".
 
 As evidence of this, we submit detailed output and diagnostics on the generation of congressional districts N = 10,000,000 (10 millon) times. These data show that this algorithm draws districts in a way that best reflects the will of the American people.
 
