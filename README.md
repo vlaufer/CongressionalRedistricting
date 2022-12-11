@@ -2,9 +2,9 @@
 #### Relevant History:
 
 ## Congressional Districting
-# Population per seat (Total of 435 congressional districts s/p fixation in 
-# States typically redraw district boundaries after each census, though they may do so at other times, such as the 2003 Texas redistricting. 
-# Each state determines its own district boundaries, either through legislation or through non-partisan panels. 
+Population per seat (Total of 435 congressional districts s/p fixation in 
+States typically redraw district boundaries after each census, though they may do so at other times, such as the 2003 Texas redistricting. 
+Each state determines its own district boundaries, either through legislation or through non-partisan panels. 
 
 ## Apportionment 
 # Roughly, the process of dividing territory to result in roughly equally populated districts within each state as a function of time.
