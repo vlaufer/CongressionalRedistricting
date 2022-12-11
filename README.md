@@ -1,9 +1,14 @@
+# Overview
 
-#### Relevant History:
+The below is a technical backbone for instantiation of a system to supplant congressional redistricting by incumbents. Instead, the proposal outlines a process that, after the generation of random seeds, proceeds to draw US Congressional Districts in an unbiased, agnostic, fair manner, protected from the vagaries of partisan politics.
 
-## Congressional Districting
-Population per seat (Total of 435 congressional districts s/p fixation in 
-States typically redraw district boundaries after each census, though they may do so at other times, such as the 2003 Texas redistricting. 
+Although the algorithm is deterministic and runs in polynomial-time, because the algorithm is blind to the location of demographic information (e.g., the addresses of registered voters nationwide) due to the large number of random seeds, the system is free from undue influence.
+
+As evidence of this, we submit detailed output and diagnostics on the generation of congressional districts N = 10,000,000 (10 millon) times. These data show that this algorithm draws districts in a way that best reflects the will of the American people.
+
+# Congressional Districting
+Population per seat (Total of 435 congressional districts s/p fixation in 1929 {see below}).
+States typically redraw district boundaries after each census, with the changes being submitted to POTUS by 9 months after completion of the Census and taking effect 3 years after the completion thereof.
 Each state determines its own district boundaries, either through legislation or through non-partisan panels. 
 
 ## State-Level Electoral Systems:
@@ -41,21 +46,21 @@ In a 1984 case, Davis v. Bandemer, the Supreme Court held that gerrymandered dis
 According to calculations made by Burt Neuborne using criteria set forth by the American Political Science Association, about 40 seats, **less than 10% of the House membership, are chosen through a genuinely contested electoral process, given partisan gerrymandering.**
 Our simulations show ____________________.
 
-######
-#### Data Sources:
+# Data Sources:
 
 ## The US Census Bureau:
-Decennial Census Data (1910-2020): https://www.census.gov/programs-surveys/decennial-census/data/tables.html
-Population Change Data (1910-2020): https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html
-Population Density Data (1910-2020): https://www.census.gov/data/tables/time-series/dec/density-data-text.html
-Historical apportionment Data https://www.census.gov/library/visualizations/interactive/historical-apportionment-data-map.html 
+- Decennial Census Data (1910-2020): https://www.census.gov/programs-surveys/decennial-census/data/tables.html
+- Population Change Data (1910-2020): https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html
+- Population Density Data (1910-2020): https://www.census.gov/data/tables/time-series/dec/density-data-text.html
+- Historical apportionment Data https://www.census.gov/library/visualizations/interactive/historical-apportionment-data-map.html 
 
 ## Population Data (according to the 2020 US Census):
 [Note, move this to a flat file or take the information from an API call in the future].
 
 State Populations:
-Alaska	
-Alabama	
+- Alaska	
+- Alabama	
+- ...
 
 Total (i.e., National) Population:
 
@@ -69,23 +74,24 @@ Obtain Precise ___File of Congressional Districts https://www.census.gov/program
 
 
 # High-Level Overview of the Algorithm
-Note that a line is defined as the shortest distance between two points, and that on a curved surface the shortest such line is itself curved (link to proof).
-There is a closed-form mathematical proof that 3 points specify a circle on a plan uniquely (link to proof).
-It can also be shown that 2 fixed points (separated by a distance l) and a fixed radius, r (where r is greater than or equal l) specify 2 unique circles (1 if r == l). 
-However, if r is allowed to vary freely, an infinite number of circles may be constructed that passes through both points. 
-It can further be shown (need to write this) that if the population density of a geographical area is known with a high degree of precision, a subset of these circles will divide the population of a 2-district state into exactly equal portions.
-A proof-by-induction suffices to further demonstrate this for 3-, 4-, and N-district geographical areas may be divided without violating the mandate of equal apportionment set forth in Article 1 Section 2 of the United States Constitution.
-The use of a random number generator that outputs random binary strings may be used to specify points within each state, enabling agnostic, unbiased congressional re-districting without violating the mandate for equal apportionment.
 
-## Selection of a Random Number Generator:
+0. Note that a line is defined as the shortest distance between two points, and that on a curved surface the shortest such line is itself curved (link to proof).
+1. There is a closed-form mathematical proof that 3 points specify a circle on a plan uniquely (link to proof).
+2. It can also be shown that 2 fixed points (separated by a distance l) and a fixed radius, r (where r is greater than or equal l) specify 2 unique circles (1 if r == l). 
+3. However, if r is allowed to vary freely, an infinite number of circles may be constructed that passes through both points. 
+4. It can further be shown (need to write this) that if the population density of a geographical area is known with a high degree of precision, a subset of these circles will divide the population of a 2-district state into exactly equal portions.
+5. A proof-by-induction suffices to further demonstrate this for 3-, 4-, and N-district geographical areas may be divided without violating the mandate of equal apportionment set forth in Article 1 Section 2 of the United States Constitution.
+6. The use of a random number generator that outputs random binary strings may be used to specify points within each state, enabling agnostic, unbiased congressional re-districting without violating the mandate for equal apportionment.
+
+# Selection of a Random Number Generator:
 Generally, we favor random number generators having:
 - Very high information entropy, e.g. quantum RNGs
-- During the trial period, off of US Soil
+- During the trial period, ideally the machine generating the random output is housed off of US Soil; afterwards, preferably the reverse.
 - Have an API
 - Implement a variety of output formats
 The QRNG@ANU JSON API supports three parameters; please see: https://qrng.anu.edu.au/contact/api-documentation/ (DoA: 10 December 2022).
 
-# Examples of the use of QRNG@ANU:
+## Examples of the use of QRNG@ANU:
 Requesting 10 random numbers between 0–255 (https://qrng.anu.edu.au/API/jsonI.php?length=10&type=uint8).
 Requesting 5 random numbers between 0–65535 (https://qrng.anu.edu.au/API/jsonI.php?length=5&type=uint16)
 Requesting 10 blocks of random numbers in hexadecimal format. Each block is between 0000–ffff (https://qrng.anu.edu.au/API/jsonI.php?length=10&type=hex16&size=2#).
