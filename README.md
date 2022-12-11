@@ -1,6 +1,6 @@
 # Overview
 
-The below is a technical backbone for instantiation of a system to supplant congressional redistricting by incumbents. Instead, the proposal outlines a process that, after the generation of random seeds, proceeds to draw US Congressional Districts in an unbiased, agnostic, fair manner, protected from the vagaries of partisan politics.
+The below is a technical backbone for instantiation of an algorithm that we believe should supplant the current system for congressional re-districting. Instead, the proposal outlines a process that, after the generation of random seeds, proceeds to draw US Congressional Districts in an unbiased, agnostic, fair manner, protected from the vagaries of partisan politics.
 
 Although the algorithm is deterministic and runs in polynomial-time, because the algorithm is blind to the location of demographic information (e.g., the addresses of registered voters nationwide) due to the large number of random seeds, the system is free from undue influence.
 
